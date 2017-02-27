@@ -1,0 +1,11 @@
+{
+    "serviceName": "Shippo",
+    "serviceDomain": "Shippo.vn",
+    "apiRoot": "http://192.168.10.250:3000/api",
+    "reCaptchaKey": "6LeSLQcUAAAAAId1BuIzs0BQaIdZQ2jQz-xlHDlc",
+    "linkDownloadOrderSample": "http://192.168.10.250:3000/mau_tao_van_don_shippo_v1.0.122016.xlsx",
+    "weightLimit": 1000,
+    "insuranceLimit": 100000000,
+    "amountLimit": 100000000,
+    "CodLimit": 10000000
+}

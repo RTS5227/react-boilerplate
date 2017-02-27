@@ -1,0 +1,15 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    "import/named": 2,
+    "react/jsx-uses-react": "error"
+  },
+  "plugins": ["import", "react"]
+}

@@ -1,0 +1,11 @@
+exports[`render component should display input 1`] = `
+<input
+  className="form-control"
+  disabled={false}
+  onBlur={[Function]}
+  onChange={[Function]}
+  onKeyUp={[Function]}
+  placeholder=""
+  type="text"
+  value="" />
+`;
