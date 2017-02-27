@@ -1,12 +1,8 @@
-INSTALL F1-Shipping
+INSTALL
 ===========
 
 `npm install
 
-### Compile & run Admin app
+### Build & Run
 
 `npm run wp:start`
-
-### Compile & run Customer app
-
-`npm run wp:start_customer`
