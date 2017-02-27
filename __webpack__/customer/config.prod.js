@@ -24,9 +24,9 @@ const config = {
             'babel-polyfill',
             path.join(APP_DIR, './index')
         ],
-        vendors: ['react', 'react-dom', 'zxcvbn', 'redux', 'jquery', 'redux-thunk',
-            'moment', 'lodash', 'react-paginate', 'react-loading', 'reselect',
-            'react-bootstrap', 'redux-form', 'react-redux', 'redux-saga']
+        vendors: ['react', 'react-dom', 'redux',
+            'moment', 'lodash', 'react-paginate', 'react-loading',
+            'redux-form', 'react-redux', 'redux-saga']
     },
     output: {
         path: BUILD_DIR,
