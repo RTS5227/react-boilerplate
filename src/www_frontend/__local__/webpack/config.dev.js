@@ -7,26 +7,27 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const env = process.env;
 
-const ROOT_DIR = path.resolve(__dirname, '../../../');
+const ROOT_DIR = path.resolve(__dirname, '../../../../');
 //Thư mục sẽ chứa tập tin được biên dịch
-const BUILD_DIR = path.resolve(ROOT_DIR, './dist/' + env.npm_package_config_appFrontendName);
+const BUILD_DIR = path.resolve(ROOT_DIR, './dist/frontend');
 //Thư mục chứa dự án - các component React
-const APP_DIR = path.join(ROOT_DIR, './src/' + env.npm_package_config_appFrontendName);
+const APP_DIR = path.resolve(__dirname, '../../');
 const Config = require(path.resolve(ROOT_DIR, './src/config.json'));
 const global = {
     'config': JSON.stringify(Config),
     'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV || 'development')
 };
-process.traceDeprecation = true 
+//process.traceDeprecation = true
+const appBaseUrl = env.npm_package_config_appFrontendHost + ':' + env.npm_package_config_appFrontendPort;
 const config = {
     entry: [
         'react-hot-loader/patch',
-        'webpack-dev-server/client?http://0.0.0.0:4040',
+        'webpack-dev-server/client?http://' + appBaseUrl,
         'babel-polyfill',
         path.join(APP_DIR, './index')
     ],
     devServer: {
-        port: process.env.PORT || 4040
+        port: process.env.PORT || env.npm_package_config_appFrontendPort
     },
     output: {
         path: BUILD_DIR,
@@ -41,9 +42,7 @@ const config = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        cacheDirectory: true,
-                        babelrc: false,
-                        extends: path.join(ROOT_DIR, './.babelrc')
+                        cacheDirectory: true
                     }
                 }
             }, {

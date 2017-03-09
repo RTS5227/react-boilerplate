@@ -1,6 +1,5 @@
 import React from 'react';
-import {Router, Route, Redirect, applyRouterMiddleware} from 'react-router'
-import {requireAuthentication} from './helpers/requireAuthentication'
+import {Router, IndexRoute, Route, Redirect, applyRouterMiddleware} from 'react-router'
 import AccessDenied from './components/Pages/Error/AccessDenied'
 import NotFound from './components/Pages/Error/NotFound'
 import ServerError from './components/Pages/Error/ServerError'
@@ -13,12 +12,13 @@ const {
     RegisterLayout, RootLayout
 } = layouts;
 
-const ViewerQueries = {
+/*const ViewerQueries = {
   viewer: () => Relay.QL`query { viewer }`
-};
+};*/
 
 export default (
-    <Route component={RootLayout} queries={ViewerQueries}>
+    <Route component={RootLayout}>
+        <IndexRoute component={home.Home} />
         <Route path="/" component={home.Home} />
         <Route path="/login" component={LoginLayout} />
 
