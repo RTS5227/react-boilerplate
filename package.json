@@ -1,6 +1,6 @@
 {
-  "name": "ReactAwesome",
-  "version": "0.0.1",
+  "name": "AwesomeWeb",
+  "version": "0.1.0",
   "main": "index.js",
   "config": {
     "appFrontendHost": "0.0.0.0",
@@ -10,7 +10,7 @@
   },
   "scripts": {
     "server:start": "babel-node ./__server__/frontend/index.js",
-    "wp:start": "babel-node ./src/www_frontend/__local__/webpack/server.js",
+    "wp:start": "babel-node ./src/www_frontend/__command__/webpack/server.js",
     "wp:update": "babel-node ./__tools__/updateSchema.js",
     "wp:build": "BUILD_DIR=${BUILD_DIR} ./node_modules/.bin/webpack -p --config ./__webpack__/frontend/config.prod.js",
     "wp:analyzer": "./node_modules/.bin/webpack --json --config ./__webpack__/frontend/config.dev.js | webpack-bundle-size-analyzer",
