@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import DocumentTitle from '../../../www_components/DocumentTitle'
+import DocumentTitle from 'cores/DocumentTitle'
 
 class RegisterLayout extends Component {
     render() {

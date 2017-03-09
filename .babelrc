@@ -1,10 +1,16 @@
 {
-  "presets": [ ["es2015", {"modules": false}], "react", "stage-0" ],
+  "presets": [ ["es2015"], "react", "stage-0" ],
   "plugins": [
+    "./__stores__/tools/babelRelayPlugin",
     ["transform-runtime", {
       "polyfill": false,
       "regenerator": true
-    }]
+    }],
+    ["module-alias", [
+      { "src": "./src/www_cores", "expose": "cores" },
+      { "src": "./src/helpers", "expose": "helpers" },
+      { "src": "./src/resources", "expose": "resources" }
+    ]]
   ],
   "env": {
     "development": {

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Header from './widgets/Header'
 import SideBar from './widgets/SideBar'
 import Footer from './widgets/Footer'
-import {connect} from 'react-redux'
 import {moment} from 'helpers'
 
 
@@ -11,7 +10,7 @@ class MainLayout extends Component {
         const {getConfig, children} = this.props;
         return (
             <div>
-                <div className="mainlayout">
+                <div className="application">
                     <Header {...this.props} />
                     <SideBar {...this.props} />
                     <div className="content-wrapper">
@@ -25,5 +24,4 @@ class MainLayout extends Component {
         )
     }
 }
-
-export default connect()(MainLayout);
+export default MainLayout;

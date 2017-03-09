@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import Link from '../../../../www_components/Link';
-import '../css/general/_fixed.scss'
+import Link from 'cores/Link';
 class SideBar extends Component {
     render() {
         return (

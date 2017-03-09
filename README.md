@@ -1,7 +1,7 @@
 INSTALL
 ===========
 
-`npm install
+`npm install`
 
 ### Build & Run
 

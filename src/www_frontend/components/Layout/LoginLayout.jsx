@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import DocumentTitle from '../../../www_components/DocumentTitle'
+import DocumentTitle from 'cores/DocumentTitle'
 
 class LoginLayout extends Component {
     render() {

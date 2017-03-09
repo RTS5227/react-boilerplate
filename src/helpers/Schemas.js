@@ -13,7 +13,7 @@ import {Schema, arrayOf, valuesOf} from 'normalizr'
 // leading to a frozen UI as it wouldn't find "someuser" in the entities.
 // That's why we're forcing lower cases down there.
 
-export const userSchema = new Schema('users', {
+/*export const userSchema = new Schema('users', {
     idAttribute: 'id'
 });
 
@@ -44,3 +44,4 @@ export default {
     ROLE_MEMBER: valuesOf(roleMemberSchema),
     ROLE_MEMBER_ARRAY: arrayOf(roleMemberSchema)
 };
+*/

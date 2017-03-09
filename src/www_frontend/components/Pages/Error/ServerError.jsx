@@ -1,10 +1,9 @@
 import React from 'react';
-import DocumentTitle from '../../../../www_components/DocumentTitle';
-import Link from '../../../../www_components/Link'
-
-import img_light from './logo-iconic-light.png';
+import DocumentTitle from 'cores/DocumentTitle';
+import Link from 'cores/Link'
 
 export default () => {
+    const img_light = require('./logo-iconic-light.png');
     return (
         <DocumentTitle title="500 Internal Server Error">
             <div className="login_layout body-bg-full v2  pace-done">
