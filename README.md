@@ -1,8 +1,10 @@
 INSTALL
 ===========
 
-`npm install`
+`npm i`
 
-### Build & Run
+### Run Webpack
 
-`npm run wp:start`
+`npm run start`
+### Run Graphiql
+`npm run graphiql`
