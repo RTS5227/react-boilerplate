@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import CSSCore from 'fbjs/lib/CSSCore';
 import {onCSSTransitionEnd, keyCode} from './utils';
 import Button from './Button';

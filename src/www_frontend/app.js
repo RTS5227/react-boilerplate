@@ -50,8 +50,8 @@ export default () => {
                         <Route path="/403" component={AccessDenied}/>
                         <Route path="/404" component={NotFound}/>
                         <Route path="/500" components={ServerError}/>
-                        <Route component={NotFound}/>
                       </ErrorLayout>
+                      <Route component={NotFound}/>
                     </Switch>
                   </RootLayout>
                 </Route>

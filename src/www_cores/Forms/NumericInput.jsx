@@ -25,7 +25,8 @@ numeral.language('vi', {
 
 // switch between languages
 numeral.language('vi');
-import React, {PropTypes} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types';
 
 export default class NumericInput extends React.Component {
     static propTypes = {

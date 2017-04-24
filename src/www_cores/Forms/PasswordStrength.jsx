@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types';
 import {HelpBlock} from 'react-bootstrap';
 import {Control} from 'react-redux-form'
 import ReactPasswordStrength from '../PasswordStrength'
