@@ -1,7 +1,7 @@
 {
   "presets": [ ["es2015"], "react", "stage-0" ],
   "plugins": [
-    "./__tools__/babelRelayPlugin",
+    ["relay", {"compat": true, "schema": "./schema.graphql"}],
     ["transform-runtime", {
       "polyfill": false,
       "regenerator": true

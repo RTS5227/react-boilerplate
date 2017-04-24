@@ -1,3 +1,3 @@
-import * as home from './Home'
+import book from './Book/Book'
 import * as layouts from './Layout'
-export {layouts, home};
+export {layouts, book};
