@@ -1,12 +1,10 @@
 /**
  * Created by Tester-Ali on 07-09-2016.
  */
-import {normalize} from 'normalizr'
-import {camelizeKeys} from 'humps'
 const HTTP_NO_CONTENT_CODE = 204;
 const AppConfig = require('../config.json');
 
-export default async(endpoint, config, schema) => {
+export default async(endpoint, config) => {
     endpoint = endpoint.startsWith('/') ? endpoint : '/' + endpoint;
     const fullUrl = (endpoint.indexOf(AppConfig.apiRoot) === -1) ? AppConfig.apiRoot + endpoint : endpoint;
     let response;
@@ -25,20 +23,6 @@ export default async(endpoint, config, schema) => {
 
     if (!response.ok) {
         throw json.error;
-    }
-
-    if (schema) {
-        if (json.hasOwnProperty('result') && Array.isArray(json.result)) {
-            let {result, metadata} = json;
-            const camelizedJson = camelizeKeys(result);
-            return Object.assign({metadata},
-                normalize(camelizedJson, schema),
-            )
-        }
-        const camelizedJson = camelizeKeys(json);
-        return Object.assign({},
-            normalize(camelizedJson, schema),
-        )
     }
     return json;
 

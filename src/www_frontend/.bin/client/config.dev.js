@@ -18,16 +18,16 @@ const global = {
     'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV || 'development')
 };
 //process.traceDeprecation = true
-const appBaseUrl = env.npm_package_config_appFrontendHost + ':' + env.npm_package_config_appFrontendPort;
+const appBaseUrl = env.GB_FRONTEND_HOST + ':' + env.GB_FRONTEND_PORT;
 const config = {
     entry: [
         'react-hot-loader/patch',
         'webpack-dev-server/client?http://' + appBaseUrl,
         'babel-polyfill',
-        path.join(APP_DIR, './index')
+        path.join(APP_DIR, './main')
     ],
     devServer: {
-        port: process.env.PORT || env.npm_package_config_appFrontendPort
+        port: env.GB_FRONTEND_PORT
     },
     output: {
         path: BUILD_DIR,

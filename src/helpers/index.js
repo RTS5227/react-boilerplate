@@ -1,6 +1,5 @@
 import Localize from './Localize'
 import callApi from './callApi'
-import * as Schemas from './Schemas'
 import * as cookies from './cookie'
 import * as formaters from './formaters'
 
@@ -26,4 +25,4 @@ export const parseErrors = errors => {
 export const encode = (code) => encodeURIComponent(`%${typeof code == 'string' ? code.trim() : ''}%`.replace(/\\/g, ``));
 
 
-export { Localize, callApi, Schemas, cookies, formaters };
+export { Localize, callApi, cookies, formaters };

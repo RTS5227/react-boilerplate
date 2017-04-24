@@ -7,10 +7,11 @@ var WebpackDevServer = require('webpack-dev-server');
 var config = require('./config.dev');
 var path = require('path')
 const env = process.env;
+const HOST = env.GB_GRAPHIQL_HOST || '0.0.0.0';
+const PORT = env.GB_GRAPHIQL_PORT || 9552;
 
 const app = new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
-    proxy: {'/graphql': `${env.npm_package_config_grapqlHost}:${env.npm_package_config_grapqlPort}`},
     hot: false,
     historyApiFallback: true,
     stats: {colors: true}
@@ -18,9 +19,9 @@ const app = new WebpackDevServer(webpack(config), {
 
 app.use('/', express.static(path.resolve(__dirname, 'dist')));
 
-app.listen(env.npm_package_config_appFrontendPort, env.npm_package_config_appFrontendHost, function (err, result) {
+app.listen(PORT, HOST, function (err, result) {
     if (err) {
         return console.log(err);
     }
-    console.log(`Listening at ${env.npm_package_config_appFrontendHost}:${env.npm_package_config_appFrontendPort}`);
+    console.log(`Graphiql-Server run on ${HOST}:${PORT}`);
 });
