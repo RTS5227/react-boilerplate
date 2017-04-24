@@ -1,5 +1,6 @@
-INSTALL
+Quick start
 ===========
+`git clone git@github.com:ltlam93/react-boilerplate.git`
 
 `npm i`
 
