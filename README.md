@@ -9,3 +9,7 @@ Quick start
 `npm run start`
 ### Run Graphiql
 `npm run graphiql`
+
+### Todos
+- [ ] server side rendering
+- [ ] react hot loader
