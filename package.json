@@ -33,7 +33,7 @@
     "moment": "^2.15.1",
     "prop-types": "^15.5.8",
     "react": "^15.5.0",
-    "react-document-title": "^2.0.2",
+    "react-document-title": "^2.0.3",
     "react-dom": "^15.4.2",
     "react-helmet": "^4.0.0",
     "react-loading": "0.0.9",
