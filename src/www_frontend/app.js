@@ -4,18 +4,17 @@ import environment from 'helpers/environment'
 import DevTools from 'cores/DevTools'
 import {
   HashRouter as Router,
-  Route, Switch, 
-  Link
+  Route, Switch
 } from 'react-router-dom'
 import Book from './components/Book/Book'
 import Author from './components/Book/Author'
 import AccessDenied from './components/Pages/Error/AccessDenied'
 import NotFound from './components/Pages/Error/NotFound'
 import ServerError from './components/Pages/Error/ServerError'
-import {layouts, home} from './components'
+import {layouts} from './components'
 const {
-    MainLayout, LoginLayout, ErrorLayout,
-    RegisterLayout, RootLayout
+    ErrorLayout,
+    RootLayout
 } = layouts;
 
 export default () => {

@@ -1,14 +1,13 @@
 {
-  "name": "AwesomeReactRelay",
-  "version": "0.0.2",
+  "name": "AwesomeReactBoilerplate",
+  "version": "0.1.2",
   "scripts": {
-    "graphiql": "babel-node ./src/www_frontend/.bin/graphiql/main.js",
     "start": "babel-node ./src/www_frontend/.bin/client/main.js",
+    "graphiql": "babel-node ./src/www_frontend/.bin/graphiql/main.js",
     "relay": "relay-compiler --src ./src/www_frontend --schema ./schema.graphql",
-    "build": "BUILD_DIR=${BUILD_DIR} ./node_modules/.bin/client -p --config ./__webpack__/frontend/config.prod.js",
-    "analyzer": "./node_modules/.bin/client --json --config ./__webpack__/frontend/config.dev.js | webpack-bundle-size-analyzer",
+    "build": "webpack -p --config ./__webpack__/frontend/config.prod.js",
     "test": "jest",
-    "test:liveload": "jest --watch"
+    "test:watch": "jest --watch"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -26,9 +25,7 @@
     }
   },
   "dependencies": {
-    "graphql": "^0.9.2",
-    "graphql-relay": "^0.5.1",
-    "graphql-sequelize": "^5.2.1",
+    "graphql": "^0.9.3",
     "lodash": "^4.16.6",
     "moment": "^2.15.1",
     "prop-types": "^15.5.8",
