@@ -12,6 +12,10 @@ store.runSaga(rootSagas);
 
 window.Perf = Perf;
 
+let a = App;
+//RelayModernGraphQLTag
+console.log(a().props.query.modern());
+
 render(
   <Provider store={store}>
     <App />

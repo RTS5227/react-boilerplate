@@ -6,6 +6,8 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const env = process.env;
+const HOST = env.GB_FRONTEND_HOST || '0.0.0.0';
+const PORT = env.GB_FRONTEND_PORT || 9551;
 
 const ROOT_DIR = path.resolve(__dirname, '../../../../');
 //Thư mục sẽ chứa tập tin được biên dịch
@@ -18,7 +20,7 @@ const global = {
     'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV || 'development')
 };
 //process.traceDeprecation = true
-const appBaseUrl = env.GB_FRONTEND_HOST + ':' + env.GB_FRONTEND_PORT;
+const appBaseUrl = HOST + ':' + PORT;
 const config = {
     entry: [
         'react-hot-loader/patch',
@@ -27,7 +29,7 @@ const config = {
         path.join(APP_DIR, './main')
     ],
     devServer: {
-        port: env.GB_FRONTEND_PORT
+        port: PORT
     },
     output: {
         path: BUILD_DIR,

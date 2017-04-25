@@ -1,12 +1,12 @@
 /**
  * Created by Tester-Ali on 09-09-2016.
  */
-var express = require('express');
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var proxy = require('http-proxy-middleware');
-var config = require('./config.dev');
-var path = require('path');
+const express = require('express');
+const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
+const proxy = require('http-proxy-middleware');
+const config = require('./config.dev');
+const path = require('path');
 const env = process.env;
 const HOST = env.GB_FRONTEND_HOST || '0.0.0.0';
 const PORT = env.GB_FRONTEND_PORT || 9551;

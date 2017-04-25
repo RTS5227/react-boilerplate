@@ -2,7 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import Perf from 'react-addons-perf'
 import { browserHistory, match, Router } from 'react-router'
-import IsomorphicRelay from 'isomorphic-relay'
+import IsomorphicRelay from 'cores/IsomorphicRelay'
 import Relay from 'react-relay';
 import routes from './routes'
 
@@ -36,4 +36,4 @@ match( {
       render( <Router {...props } />, document.getElementById('root') )
     } )
   }
-)
+);

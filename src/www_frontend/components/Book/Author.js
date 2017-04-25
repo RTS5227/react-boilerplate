@@ -13,6 +13,6 @@ const mapStateToProps = state => {
 	return {
 		authorName: 'J. K. Rowling'
 	}
-}
+};
 
 export default withRouter(connect(mapStateToProps)(Author))
