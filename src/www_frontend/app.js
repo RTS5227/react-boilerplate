@@ -7,6 +7,7 @@ import {
   Route, Switch
 } from 'react-router-dom'
 import Book from './components/Book/Book'
+import Chapter from './components/Book/Chapter'
 import Author from './components/Book/Author'
 import AccessDenied from './components/Pages/Error/AccessDenied'
 import NotFound from './components/Pages/Error/NotFound'
@@ -24,7 +25,8 @@ export default () => {
       query={graphql`
         query appQuery {
           viewer {
-            ...Book_viewer
+            ...Book_viewer,
+            ...Chapter_viewer
           }
         }
       `}
@@ -45,6 +47,7 @@ export default () => {
                     <Switch>
                       <Route exact path="/" render={() => <Book {...props} />} />
                       <Route path="/author" render={() => <Author {...props} />} />
+                        <Route path="/chapter" render={() => <Chapter {...props} />} />
                       <ErrorLayout>
                         <Route path="/403" component={AccessDenied}/>
                         <Route path="/404" component={NotFound}/>
