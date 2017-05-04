@@ -27,7 +27,7 @@ function render(location) {
 		    {result.component}
 		  </Provider>
   	);
-    ReactDOM.render(resultComponent, document.getElementById('root'), () => {
+    ReactDOM.render(result.component, document.getElementById('root'), () => {
       document.title = result.title;
     });
   });

@@ -9,10 +9,9 @@ import {parseErrors} from 'helpers'
 import {startSubmit, stopSubmit} from 'redux-form'
 import {getToken, getSession} from './helpers'
 import {push} from 'react-router-redux'
-import {customer, order, transactions} from './components'
 import * as t from './ActionTypes'
 import * as api from './helpers/api'
-
+const {customer, order, transactions} = {};
 function* resetToast(action) {
     yield call(delay, 3000);
     yield put(toastr.actions.clean());
