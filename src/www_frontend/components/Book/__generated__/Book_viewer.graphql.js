@@ -3,7 +3,7 @@
  *   relay-compiler
  *
  * @providesModule Book_viewer.graphql
- * @generated SignedSource<<21f973e5d93fafb32e4d7c345e81a2c1>>
+ * @generated SignedSource<<5b34851fbca630e25d03cc92e90f1129>>
  * @flow
  * @nogrep
  */
@@ -18,6 +18,7 @@ export type Book_viewer = {
 
 export type Book_viewer_book = {
   id: string;
+  title?: ?string;
 };
 */
 
@@ -42,6 +43,13 @@ const fragment /*: ConcreteFragment*/ = {
           "alias": null,
           "args": null,
           "name": "id",
+          "storageKey": null
+        },
+        {
+          "kind": "ScalarField",
+          "alias": null,
+          "args": null,
+          "name": "title",
           "storageKey": null
         }
       ],

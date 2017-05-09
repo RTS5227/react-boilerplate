@@ -1,7 +1,5 @@
 import {createStore, applyMiddleware, compose} from 'redux'
 import createLogger from 'redux-logger'
-import {browserHistory, hashHistory} from 'react-router'
-import {routerMiddleware} from 'react-router-redux'
 import DevTools from 'cores/DevTools'
 import createSagaMiddleware, { END } from 'redux-saga'
 
@@ -13,7 +11,6 @@ export default function configureStore(rootReducer, preloadedState) {
         compose(
             applyMiddleware(
                 createLogger(), sagaMiddleware,
-                routerMiddleware(hashHistory),
             ),
             DevTools.instrument(),
         )

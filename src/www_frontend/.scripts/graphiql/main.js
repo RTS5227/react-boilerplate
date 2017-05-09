@@ -8,7 +8,7 @@ var config = require('./config.dev');
 var path = require('path')
 const env = process.env;
 const HOST = env.GB_GRAPHIQL_HOST || '0.0.0.0';
-const PORT = env.GB_GRAPHIQL_PORT || 9552;
+const PORT = env.GB_GRAPHIQL_PORT || 9551;
 
 const app = new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,

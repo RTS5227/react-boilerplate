@@ -2,10 +2,11 @@ import React from 'react';
 import {
   createFragmentContainer,
   graphql,
-} from 'react-relay';
+} from 'react-relay/compat';
 
 
 const Book = props => {
+  console.log('Book: ', props);
   if (!props.viewer || !props.viewer.book) return <p>Nothing</p>;
   return (
     <div>
@@ -15,12 +16,12 @@ const Book = props => {
   )
 }
 
-export default createFragmentContainer(Book, {
-	viewer: graphql`
+export default createFragmentContainer(Book, graphql`
 		fragment Book_viewer on User {
 			book {
         id
+        title
       }
 		}
 	`
-})
+)

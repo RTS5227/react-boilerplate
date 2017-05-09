@@ -6,7 +6,6 @@ import {callApi} from 'helpers'
 import {push} from 'react-router-redux'
 //import {getToken} from './helpers'
 import {parseErrors, Localize} from 'helpers'
-import {HttpCapture} from 'cores'
 import url from 'url'
 import qs from 'qs'
 
@@ -31,8 +30,6 @@ export function* fetch(endpoint, config, schema, authenticate) {
         error.code = error.code || error.statusCode;
         error.payload = parseErrors(error);
         throw error;
-    } finally {
-        yield sagaPut(HttpCapture.actions.log(endpoint, config, response, httpError));
     }
 }
 

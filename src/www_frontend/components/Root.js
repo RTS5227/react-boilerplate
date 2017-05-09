@@ -1,10 +1,11 @@
+import React from 'react';
 
 // The top-level (parent) route
 export default {
   path: '/',
   //Keep in mind, routes are evaluated in order
   children: [
-    require('./Book/App').default,
+    require('./Book').default,
 
     // Wildcard routes, e.g. { path: '*', ... } (must go last)
     require('./Pages/NotFound').default,
@@ -23,6 +24,7 @@ export default {
     // Provide default values for title, description, etc.
     child.title = `${child.title || 'Untitled Page'} - www.shippo.vn`;
     child.description = child.description || '';
+    child.component = React.cloneElement(child.component, viewer);
     return child;
   },
 }

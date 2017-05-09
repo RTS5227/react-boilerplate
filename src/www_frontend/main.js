@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Perf from 'react-addons-perf'
@@ -8,6 +9,7 @@ import rootSagas from './saga'
 import Router from 'universal-router';
 import Api from 'helpers/api';
 import history from 'helpers/history';
+import PropTypes from 'prop-types';
 import configureStore from './stores/configureStore'
 
 const store = configureStore(reducer);
@@ -22,12 +24,28 @@ const context = {
 
 function render(location) {
   router.resolve({ path: location.pathname, ...context }).then((result) => {
-  	const resultComponent = (
-  		<Provider store={store}>
-		    {result.component}
-		  </Provider>
-  	);
-    ReactDOM.render(result.component, document.getElementById('root'), () => {
+    class MainComponent extends React.Component {
+      getChildContext() {
+        return {
+          relay: {
+            environment: context.api.environment,
+            variables: {},
+          }
+        };
+      }
+      render () {
+        return (
+          <Provider store={store}>
+            {result.component}
+          </Provider>
+        )
+      }
+    }
+
+    MainComponent.childContextTypes = {
+      relay: PropTypes.object,
+    };
+    ReactDOM.render(<MainComponent />, document.getElementById('root'), () => {
       document.title = result.title;
     });
   });

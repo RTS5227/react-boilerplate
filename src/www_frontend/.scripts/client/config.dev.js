@@ -7,7 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const env = process.env;
 const HOST = env.GB_FRONTEND_HOST || '0.0.0.0';
-const PORT = env.GB_FRONTEND_PORT || 9551;
+const PORT = env.GB_FRONTEND_PORT || 9552;
 
 const ROOT_DIR = path.resolve(__dirname, '../../../../');
 //Thư mục sẽ chứa tập tin được biên dịch

@@ -3,8 +3,8 @@
  *   relay-compiler
  *
  * @providesModule Root_Query.graphql
- * @generated SignedSource<<852360d49e105bcfbd9649ddd7116c9b>>
- * @relayHash 9510e89dc7a10ac4de84d1097f198149
+ * @generated SignedSource<<1dd9f3c38ae932329ad45dbf0f3272a5>>
+ * @relayHash af5d9cccd7c69e59cb948cde09bc169e
  * @flow
  * @nogrep
  */
@@ -28,6 +28,7 @@ query Root_Query {
 fragment Book_viewer on User {
   book {
     id
+    title
   }
 }
 */
@@ -90,6 +91,13 @@ const batch /*: ConcreteBatch*/ = {
                 "args": null,
                 "name": "id",
                 "storageKey": null
+              },
+              {
+                "kind": "ScalarField",
+                "alias": null,
+                "args": null,
+                "name": "title",
+                "storageKey": null
               }
             ],
             "storageKey": null
@@ -99,7 +107,7 @@ const batch /*: ConcreteBatch*/ = {
       }
     ]
   },
-  "text": "query Root_Query {\n  viewer {\n    ...Book_viewer\n  }\n}\n\nfragment Book_viewer on User {\n  book {\n    id\n  }\n}\n"
+  "text": "query Root_Query {\n  viewer {\n    ...Book_viewer\n  }\n}\n\nfragment Book_viewer on User {\n  book {\n    id\n    title\n  }\n}\n"
 };
 
 module.exports = batch;
