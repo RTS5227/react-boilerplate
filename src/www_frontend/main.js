@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Perf from 'react-addons-perf'
 import { Provider } from 'react-redux'
-import Root from './components/Root'
+import components from './components'
 import reducer from './reducer'
 import rootSagas from './saga'
 import Router from 'universal-router';
@@ -17,7 +17,7 @@ store.runSaga(rootSagas);
 
 window.Perf = Perf;
 
-const router = new Router(Root);
+const router = new Router(components);
 const context = {
   api: Api.create({ baseUrl: '' }),
 };

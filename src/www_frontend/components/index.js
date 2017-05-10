@@ -11,20 +11,12 @@ export default {
     require('./Pages/NotFound').default,
   ],
   async action({next, api}) {
-    const viewer = await api.fetchQuery(graphql`
-      query Root_Query {
-        viewer {
-          ...Book_viewer
-        }
-      }
-    `);
     // Excute each child route until one of them return the result
     const child = await next();
 
     // Provide default values for title, description, etc.
     child.title = `${child.title || 'Untitled Page'} - www.shippo.vn`;
     child.description = child.description || '';
-    child.component = React.cloneElement(child.component, viewer);
     return child;
   },
 }

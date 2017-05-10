@@ -8,12 +8,21 @@ import {
 const title = 'Home';
 
 export default {
+
   path: '/',
+
   async action({api}) {
+  	const viewer = await api.fetchQuery(graphql`
+      query index_Query {
+        viewer {
+          ...Book_viewer
+        }
+      }
+    `);
     return {
       title,
       //component: <Layout><Book viewer={viewer} title={title} /></Layout>,
-      component: <Book title={title} />,
+      component: <Book viewer={viewer} title={title} />,
     };
   },
 
