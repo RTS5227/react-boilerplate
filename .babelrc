@@ -1,17 +1,17 @@
 {
   "presets": [
     "react",
-    ["es2015", { "modules": false }],
+    "es2015",
     "stage-0"
   ],
   "plugins": [
-    ["relay", {"compat": true, "schema": "./schema.graphql"}],
+    ["relay", {"compat": true, "schema": "./data/schema.graphql"}],
     ["transform-runtime", {
       "polyfill": false,
       "regenerator": true
     }],
     ["module-alias", [
-      { "src": "./src/www_cores", "expose": "cores" },
+      { "src": "./src/www_shared", "expose": "shared" },
       { "src": "./src/helpers", "expose": "helpers" },
       { "src": "./src/resources", "expose": "resources" }
     ]]

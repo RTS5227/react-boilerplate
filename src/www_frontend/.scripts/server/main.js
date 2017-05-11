@@ -1,19 +1,28 @@
-import express from 'express';
-import app from './app'; // React server
-//import graphQL from './graphql'; // GraphQL server
-
+/**
+ * Created by Tester-Ali on 09-09-2016.
+ */
+const express = require('express');
+const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
+const proxy = require('http-proxy-middleware');
+const config = require('./webpack.config');
+const path = require('path');
 const env = process.env;
-const host = env.npm_package_config_appServerHost;
-const port = env.npm_package_config_appServerPort;
+const HOST = env.GB_FRONTEND_HOST || '0.0.0.0';
+const PORT = env.GB_FRONTEND_PORT || 9552;
 
-let router = express();
-//router.use('/graphql', graphQL);
-router.use('/*', app);
+const app = new WebpackDevServer(webpack(config), {
+    publicPath: config.output.publicPath,
+    hot: false,
+    historyApiFallback: true,
+    stats: {colors: true}
+});
 
-let server = router.listen(port, host);
-
-/*let server = router.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-})*/
-
-export default server;
+app.use('/', express.static(path.resolve(__dirname, 'dist')));
+app.listen(PORT, HOST, function (err, result) {
+    if (err) {
+    	console.log(`Failed Listening at ${HOST}:${PORT}`);
+        return console.log(err);
+    }
+    console.log(`Listening at ${HOST}:${PORT}`);
+});

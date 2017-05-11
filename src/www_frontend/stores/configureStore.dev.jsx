@@ -1,6 +1,6 @@
 import {createStore, applyMiddleware, compose} from 'redux'
 import createLogger from 'redux-logger'
-import DevTools from 'cores/DevTools'
+import DevTools from 'shared/DevTools'
 import createSagaMiddleware, { END } from 'redux-saga'
 
 export default function configureStore(rootReducer, preloadedState) {

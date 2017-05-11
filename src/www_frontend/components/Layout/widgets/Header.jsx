@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Link from 'cores/Link';
+import Link from 'shared/Link';
 
 class Header extends Component {
     render() {

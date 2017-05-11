@@ -1,12 +1,10 @@
 import {routerReducer as routing} from 'react-router-redux'
-import {toastr} from 'cores'
+import {toastr} from 'shared'
 import {combineReducers} from 'redux'
-import {RESOURCE_NOT_FOUND_CODE, ACCESS_DENIED_CODE} from './constants'
-import * as t from './ActionTypes'
+import {RESOURCE_NOT_FOUND_CODE, ACCESS_DENIED_CODE, ActionTypes as t} from './constants'
 import {reducer as formReducer} from 'redux-form'
 import { reducer as modalReducer } from 'redux-modal'
 import {Localize} from 'helpers'
-import {HttpCapture} from 'cores'
 
 const rootReducer = combineReducers({
     routing,

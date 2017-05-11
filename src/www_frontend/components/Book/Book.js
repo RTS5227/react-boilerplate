@@ -2,11 +2,10 @@ import React from 'react';
 import {
   createFragmentContainer,
   graphql,
-} from 'react-relay/compat';
+} from 'react-relay';
 
 
 const Book = props => {
-  console.log('Book: ', props);
   if (!props.viewer || !props.viewer.book) return <p>Nothing</p>;
   return (
     <div>

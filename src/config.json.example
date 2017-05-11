@@ -1,5 +1,5 @@
 {
-    "serviceName": "AwesomeReactBoilerplate",
-    "serviceDomain": "AwesomeReactBoilerplate.Js",
-    "apiRoot": "http://192.168.10.250:3000/api"
+    "serviceName": "Example",
+    "serviceDomain": "example.com",
+    "graphqlServer": "http://localhost/graphql"
 }

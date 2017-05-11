@@ -1,7 +1,0 @@
-export {LOCATION_CHANGE} from 'react-router-redux'
-export const CALL_API = 'CALL_API';
-export const RESET_STATE = 'RESET_STATE'
-export const DISPLAY_ERROR = 'DISPLAY_ERROR';
-export const FETCH_CONFIG_REQUEST = 'FETCH_CONFIG_REQUEST';
-export const FETCH_CONFIG_SUCCESS = 'FETCH_CONFIG_SUCCESS';
-export const FETCH_CONFIG_FAILURE = 'FETCH_CONFIG_FAILURE';

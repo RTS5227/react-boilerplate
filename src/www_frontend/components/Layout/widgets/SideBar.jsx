@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Link from 'cores/Link';
+import Link from 'shared/Link';
 class SideBar extends Component {
     render() {
         return (
@@ -14,18 +14,8 @@ class SideBar extends Component {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/orders">
-                                <i className="ti-package mr-5"></i><span>Danh sách vận đơn</span>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/transactions">
-                                <i className="ti-money mr-5"></i><span>Tài chính</span>
-                            </Link>
-                        </li>
-                        <li>
                             <Link to="/profile">
-                                <i className="ti-info-alt mr-5"></i><span>Trang cá nhân</span>
+                                <i className="ti-info-alt mr-5"></i><span>Profile</span>
                             </Link>
                         </li>
                     </ul>
