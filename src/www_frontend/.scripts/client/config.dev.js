@@ -21,6 +21,8 @@ const global = {
 };
 //process.traceDeprecation = true
 const appBaseUrl = HOST + ':' + PORT;
+// https://github.com/webpack/loader-utils/issues/56
+process.noDeprecation = true;
 const config = {
     entry: [
         'react-hot-loader/patch',
@@ -41,6 +43,10 @@ const config = {
             {
                 test: /\.jsx?/,
                 exclude: /node_modules/,
+                /*loader: 'babel-loader',
+                options: {
+                    cacheDirectory: true
+                },*/
                 use: {
                     loader: 'babel-loader',
                     options: {
