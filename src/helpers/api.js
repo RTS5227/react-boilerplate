@@ -12,7 +12,7 @@ import {
 /**
  * Creates a set of helper methods for working with REST and/or GraphQL APIs.
  */
-function create({ baseUrl, headers = {} }) {
+function create({ baseUrl, headers = {}, records = {} }) {
   // Default options for the Fetch API
   // https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fetch
   const defaults = {
@@ -28,7 +28,7 @@ function create({ baseUrl, headers = {} }) {
   // Configure Relay environment
   const environment = new Environment({
     handlerProvider: null,
-    network: Network.create((operation, variables /* cacheConfig, uploadables */) => fetch(`${baseUrl}/graphql`, {
+    network: Network.create((operation, variables /* cacheConfig, uploadables */) => fetch(baseUrl ? baseUrl : baseUrl + '/graphql', {
       ...defaults,
       method: 'POST',
       body: JSON.stringify({
@@ -36,7 +36,7 @@ function create({ baseUrl, headers = {} }) {
         variables,
       }),
     }).then(x => x.json())),
-    store: new Store(new RecordSource()),
+    store: new Store(new RecordSource(records)),
   });
 
   return {

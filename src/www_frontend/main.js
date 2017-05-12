@@ -10,6 +10,7 @@ import Api from 'helpers/api';
 import history from 'helpers/history';
 import PropTypes from 'prop-types';
 import configureStore from './stores/configureStore'
+import config from '../config.json';
 
 const store = configureStore(reducer);
 store.runSaga(rootSagas);
@@ -18,7 +19,7 @@ window.Perf = Perf;
 
 const router = new Router(components);
 const context = {
-  api: Api.create({ baseUrl: '' }),
+  api: Api.create({ baseUrl: config.graphqlServer }),
 };
 
 function render(location) {

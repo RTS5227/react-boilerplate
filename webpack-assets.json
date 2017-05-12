@@ -1,0 +1,12 @@
+{
+  "javascript": {
+    "main": "http://localhost:9550bundle.js"
+  },
+  "styles": {},
+  "assets": {
+    "./src/www_shared/Pages/logo-iconic-light.png": "http://localhost:9550assets/519847b94ca550a9807ac8a53808c517.png",
+    "./src/www_shared/ReToastr/toastr-confirm.scss": {
+      "_style": ".btn-confirm-toast {\n  width: 100%;\n  height: 70px;\n  padding-top: 15px;\n  padding-bottom: 15px;\n  border-top: 1px solid #eee; }\n  .btn-confirm-toast button.btn {\n    width: 100px !important;\n    height: 40px !important;\n    margin-right: 15px !important;\n    float: right !important;\n    display: inline-block;\n    font-weight: normal;\n    text-align: center;\n    vertical-align: middle;\n    touch-action: manipulation;\n    border: 1px solid #eee !important;\n    border-radius: 4px;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none; }\n  .btn-confirm-toast button.btn.btn-primary {\n    color: #FFF; }\n    .btn-confirm-toast button.btn.btn-primary:hover, .btn-confirm-toast button.btn.btn-primary:focus {\n      background-color: #286090;\n      border-color: #204d74; }\n"
+    }
+  }
+}
