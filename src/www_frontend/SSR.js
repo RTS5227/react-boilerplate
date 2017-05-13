@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/server';
-import Router from 'universal-router';
 import Api from 'libs/api';
-import components from './components';
+import router from './components';
 import Html from './components/Html'
 import PropTypes from 'prop-types';
 import config from '../config.json';
-
-const router = new Router(components);
 
 export default (req, res) => {
   const ssr = req.query['_escaped_fragments_'] || __ENABLE_SSR__;
