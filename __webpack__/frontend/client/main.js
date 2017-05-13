@@ -13,7 +13,7 @@ const PORT = env.GB_FRONTEND_PORT || 9552;
 
 const app = new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
-    hot: false,
+    hot: true,
     historyApiFallback: true,
     stats: {colors: true}
 });

@@ -1,7 +1,7 @@
 {
   "presets": [
     "react",
-    "es2015",
+    ["es2015", { "modules": false }],
     "stage-0"
   ],
   "plugins": [
@@ -12,9 +12,11 @@
     }],
     ["module-alias", [
       { "src": "./src/www_shared", "expose": "shared" },
-      { "src": "./src/helpers", "expose": "helpers" },
-      { "src": "./src/resources", "expose": "resources" }
-    ]]
+      { "src": "./src/libs", "expose": "libs" },
+      { "src": "./src/resources", "expose": "resources" },
+      { "src": "./src/www_frontend", "expose": "frontend" }
+    ]],
+    ["react-hot-loader/babel"]
   ],
   "env": {
     "development": {

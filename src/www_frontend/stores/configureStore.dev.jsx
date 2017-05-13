@@ -18,14 +18,6 @@ export default function configureStore(rootReducer, preloadedState) {
 
     store.runSaga = sagaMiddleware.run;
     store.close = () => store.dispatch(END);
-
-    if (module.hot) {
-        // Enable Webpack hot module replacement for reducers
-        module.hot.accept('../reducer', () => {
-            const nextRootReducer = require('../reducer').default;
-            store.replaceReducer(nextRootReducer)
-        })
-    }
-
+    
     return store;
 }

@@ -21,7 +21,7 @@ numeral.language('vi', {
         symbol: 'VNĐ'
     }
 });
-//TODO use helpers when release
+//TODO use libs when release
 
 // switch between languages
 numeral.language('vi');

@@ -3,14 +3,15 @@ import {
   createFragmentContainer,
   graphql,
 } from 'react-relay';
+import Link from 'shared/Link';
 
 
 const Book = props => {
   if (!props.viewer || !props.viewer.book) return <p>Nothing</p>;
   return (
     <div>
-      Book: {props.viewer.book.title} (relay)<br />
-      <a href="/author">Author</a>
+      Book: {props.viewer.book.title}<br />
+      <Link to="/author">Author</Link>
     </div>
   )
 }

@@ -2,14 +2,23 @@
 
 var fs = require('fs');
 
-var babelrc = fs.readFileSync('./.babelrc');
-var config;
-
-try {
-  config = JSON.parse(babelrc);
-} catch (err) {
-  console.error('==>     ERROR: Error parsing your .babelrc.');
-  console.error(err);
-}
-
-require('babel-register')(config);
+var babelrc = {
+  "presets": [
+    "react",
+    "es2015",
+    "stage-0"
+  ],
+  "plugins": [
+    ["relay", {"compat": true, "schema": "./data/schema.graphql"}],
+    ["transform-runtime", {
+      "polyfill": false,
+      "regenerator": true
+    }],
+    ["module-alias", [
+      { "src": "./src/www_shared", "expose": "shared" },
+      { "src": "./src/libs", "expose": "libs" },
+      { "src": "./src/resources", "expose": "resources" }
+    ]]
+  ]
+};
+require('babel-register')(babelrc);

@@ -1,5 +1,6 @@
 {
     "serviceName": "Example",
     "serviceDomain": "example.com",
-    "graphqlServer": "http://localhost/graphql"
+    "serviceDescription": "exmaple description",
+    "graphqlServer": "http://localhost:9550/graphql"
 }

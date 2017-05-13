@@ -1,8 +1,9 @@
 import React from 'react';
+import Router from 'universal-router';
 import config from '../../config.json';
 
 // The top-level (parent) route
-export default {
+export default new Router({
   path: '/',
   //Keep in mind, routes are evaluated in order
   children: [
@@ -17,7 +18,7 @@ export default {
 
     // Provide default values for title, description, etc.
     child.title = `${child.title || 'Untitled Page'} - ${config.serviceName}`;
-    child.description = child.description || '';
+    child.description = child.description || '1tcdd';
     return child;
   },
-}
+})

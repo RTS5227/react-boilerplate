@@ -1,34 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import Router from 'universal-router';
-import Api from 'helpers/api';
+import Api from 'libs/api';
 import components from './components';
 import Html from './components/Html'
 import PropTypes from 'prop-types';
-// import reducer from './reducer'
-// import rootSagas from './saga'
 import config from '../config.json';
 
-/*const store = configureStore(reducer);
-store.runSaga(rootSagas);
-const app = express();*/
 const router = new Router(components);
 
 export default (req, res) => {
+  const ssr = req.query['_escaped_fragments_'] || __ENABLE_SSR__;
   if (__DEVELOPMENT__) {
     // Do not cache webpack stats: the script file would change since
     // hot module replacement is enabled in the development env
     webpackIsomorphicTools.refresh();
-  }    
-  if (__DISABLE_SSR__) { // <----- DISABLES SERVER SIDE RENDERING FOR ERROR DEBUGGING
-    const html = ReactDOM.renderToStaticMarkup(
-      <Html 
-        scripts={['SSR.js']} 
-        assets={webpackIsomorphicTools.assets()}
-        title={result.title} />
-    );
-    res.send(`<!doctype html>${html}`);
-    return;
   }
   const context = {
     api: Api.create({
@@ -36,7 +22,19 @@ export default (req, res) => {
       headers: req.headers,
     }),
   };
-  router.resolve({ path: req.path, ...context }).then((result) => {
+  if (!ssr) {
+    // ENABLE CLIENT SIDE RENDERING
+    const html = ReactDOM.renderToStaticMarkup(
+      <Html
+        ssr={false}
+        description={config.serviceDescription}
+        assets={webpackIsomorphicTools.assets()} />
+    );
+    res.send(`<!doctype html>${html}`);
+    return;
+  }
+  const path = req.query['_escaped_fragments_'] || req.path;
+  router.resolve({ path: path, ...context }).then((result) => {
     class MainComponent extends React.Component {
       getChildContext() {
         return {
@@ -54,12 +52,12 @@ export default (req, res) => {
     MainComponent.childContextTypes = {
       relay: PropTypes.object,
     };
-    const body = ReactDOM.renderToString(<MainComponent />);
+    const body = ReactDOM.renderToStaticMarkup(<MainComponent />);
     const html = ReactDOM.renderToStaticMarkup(
-      <Html 
-        scripts={['SSR.js']} 
-        children={body} 
+      <Html
+        children={body} ssr={true}
         assets={webpackIsomorphicTools.assets()}
+        description={result.description || config.serviceDescription}
         title={result.title} />
     );
     res.send(`<!doctype html>${html}`);

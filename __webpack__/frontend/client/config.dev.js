@@ -27,9 +27,10 @@ process.noDeprecation = true;
 const config = {
     context: ROOT_DIR,
     entry: [
+        'babel-polyfill',
         'react-hot-loader/patch',
         'webpack-dev-server/client?http://' + appBaseUrl,
-        'babel-polyfill',
+        'webpack/hot/only-dev-server',
         path.join(APP_DIR, './main')
     ],
     devServer: {
@@ -38,7 +39,7 @@ const config = {
     output: {
         path: BUILD_DIR,
         filename: 'bundle.js',
-        publicPath: 'http://' + HOST + ':' + PORT + '/dist/'
+        publicPath: 'http://' + env.GB_GRAPHQL_HOST + ':' + env.GB_GRAPHQL_PORT + '/dist/'
     },
     devtool: 'source-map',
     module: {
@@ -103,11 +104,8 @@ const config = {
     },
 
     plugins: [
-        new HtmlWebpackPlugin({
-            title: Config.serviceName,
-            favicon: path.join(APP_DIR, './favicon.png'),
-            template: path.join(APP_DIR, './index.html')
-        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin(),
         new webpack.IgnorePlugin(/webpack-stats\.json$/),
         new webpack.DefinePlugin({
           'process.env.NODE_ENV': JSON.stringify('development'),
