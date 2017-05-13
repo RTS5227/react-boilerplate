@@ -1,7 +1,9 @@
 Quick start
 ===========
 `git clone git@github.com:ltlam93/react-boilerplate.git`
+
 `cd react-boilerplate`
+
 `npm i`
 
 ### Run Webpack
