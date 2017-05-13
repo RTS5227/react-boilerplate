@@ -9,8 +9,8 @@ class SideBar extends Component {
 
                     <ul className="sidebar-menu">
                         <li>
-                            <Link to="/">
-                                <i className="ti-home mr-5"></i><span>Dashboard</span>
+                            <Link to="/?_escaped_fragments_=/">
+                                <i className="ti-home mr-5"></i><span>Dashboard SSR</span>
                             </Link>
                         </li>
                         <li>
