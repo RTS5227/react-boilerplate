@@ -4,6 +4,8 @@ Quick start
 
 `cd react-boilerplate`
 
+`cp src/config.json.example  src/config.json`
+
 `npm i`
 
 ### Run Webpack
