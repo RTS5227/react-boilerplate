@@ -26,9 +26,7 @@ class Root extends React.Component {
   onLocationChange = location => {
     const {router} = this.props;
     router.resolve({ path: location.pathname, ...context }).then(result => {
-      this.setState({result}, () => {
-        document.title = result.title;
-      });
+      this.setState({result});
     });
   }
 

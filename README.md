@@ -1,6 +1,6 @@
 Quick start
 ===========
-`git clone git@github.com:ltlam93/react-boilerplate.git`
+`git clone git@github.com:luongthanhlam/react-boilerplate.git`
 
 `cd react-boilerplate`
 
@@ -16,5 +16,7 @@ Quick start
 `npm run graphiql`
 
 ### Todos
+- [ x ] relay modern
 - [ x ] server side rendering
 - [ x ] react hot loader
+- [ ] Accelerated Mobile Pages

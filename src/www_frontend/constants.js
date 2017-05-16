@@ -1,4 +1,3 @@
-import {LOCATION_CHANGE} from 'react-router-redux'
 
 export const SESSION_KEY = 'SESSION_FRONTEND';
 export const CALL_API = 'CALL_API';
@@ -7,7 +6,6 @@ export const UNAUTHORIZED_CODE = 401;
 export const ACCESS_DENIED_CODE = 403;
 
 export const ActionTypes = {
-	LOCATION_CHANGE: LOCATION_CHANGE,
 	CALL_API: 'CALL_API',
 	RESET_STATE: 'RESET_STATE',
 	DISPLAY_ERROR: 'DISPLAY_ERROR',

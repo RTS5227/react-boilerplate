@@ -1,10 +1,12 @@
 import React from 'react';
 import Link from 'shared/Link';
+import Helmet from 'shared/Helmet'
 
 export default () => {
     const img_light = require('../logo-iconic-light.png');
     return (
         <div className="login_layout body-bg-full v2  pace-done">
+            <Helmet><title>Page Not Found</title></Helmet>
             <div className="container page-container">
                 <div className="page-content form-error">
                     <div className="logo"><img src={img_light} alt="" width="100"/></div>

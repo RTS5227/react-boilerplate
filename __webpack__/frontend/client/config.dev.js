@@ -3,8 +3,8 @@
  */
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // https://github.com/halt-hammerzeit/webpack-isomorphic-tools
 var WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
@@ -24,6 +24,7 @@ const Config = require(path.resolve(ROOT_DIR, './src/config.json'));
 const appBaseUrl = HOST + ':' + PORT;
 // https://github.com/webpack/loader-utils/issues/56
 process.noDeprecation = true;
+const extractCSS = new ExtractTextPlugin('bundle.css');
 const config = {
     context: ROOT_DIR,
     entry: [
@@ -39,7 +40,7 @@ const config = {
     output: {
         path: BUILD_DIR,
         filename: 'bundle.js',
-        publicPath: 'http://' + env.GB_GRAPHQL_HOST + ':' + env.GB_GRAPHQL_PORT + '/dist/'
+        publicPath: `http://${env.GB_GRAPHQL_HOST || HOST}:${env.GB_GRAPHQL_PORT || PORT}/dist/`
     },
     devtool: 'source-map',
     module: {
@@ -58,29 +59,20 @@ const config = {
                     }
                 }
             }, {
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: "style-loader" // creates style nodes from JS strings
-                    }, {
-                        loader: "css-loader" // translates CSS into CommonJS
-                    }
-                ]
+                test: /\.css$/, loaders: extractCSS.extract({
+                    fallback: "style-loader",
+                    use: "css-loader"
+                })
             }, {
-                test: /\.json$/, use: "json-loader"
+                test: /\.json$/, loader: "json-loader"
             }, {
                 //github.com/jtangelder/sass-loader
                 test: /\.scss$/,
-                exclude: /node_modules/,
-                use: [
-                    {
-                        loader: "style-loader" // creates style nodes from JS strings
-                    }, {
-                        loader: "css-loader" // translates CSS into CommonJS
-                    }, {
-                        loader: "sass-loader" // compiles Sass to CSS
-                    }
-                ]
+                loader: extractCSS.extract({
+                    fallback: "style-loader",
+                    use: "css-loader!sass-loader"
+                }),
+                exclude: /node_modules/
             }, {
                 // các file ảnh ọt và font được copy sang thư mục đích.
                 test: /\.(svg|woff|woff2|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
@@ -104,6 +96,7 @@ const config = {
     },
 
     plugins: [
+        extractCSS,
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
         new webpack.IgnorePlugin(/webpack-stats\.json$/),

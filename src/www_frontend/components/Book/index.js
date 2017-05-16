@@ -2,8 +2,6 @@ import React from 'react';
 import Layout from '../Layout';
 import Book from './Book';
 
-const title = 'Home';
-
 export default {
 
   path: '/',
@@ -17,8 +15,7 @@ export default {
       }
     `);
     return {
-      title,
-      component: <Layout viewer={viewer}><Book viewer={viewer} title={title} /></Layout>,
+      component: <Layout viewer={viewer}><Book viewer={viewer} /></Layout>,
     };
   },
 

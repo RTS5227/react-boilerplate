@@ -3,7 +3,6 @@
  */
 import {call, select, put as sagaPut} from 'redux-saga/effects'
 import {callApi} from 'libs'
-import {push} from 'react-router-redux'
 //import {getToken} from './libs'
 import {parseErrors, Localize} from 'libs'
 import url from 'url'

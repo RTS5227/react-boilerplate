@@ -8,7 +8,6 @@ import {UNAUTHORIZED_CODE, RESOURCE_NOT_FOUND_CODE, ACCESS_DENIED_CODE, ActionTy
 import {parseErrors} from 'libs'
 import {startSubmit, stopSubmit} from 'redux-form'
 import {getToken, getSession} from './libs'
-import {push} from 'react-router-redux'
 import * as api from './libs/api'
 const {customer, order, transactions} = {};
 function* resetToast(action) {
@@ -35,7 +34,6 @@ export function* callWebApi(action) {
         const statusCode = error['code'] || error['statusCode'];
         yield put({type: failureType, ajax: false, error});
         if (isRedirectToErrorPage(statusCode)) {
-            yield put(push(`/error/${statusCode}`));
         } else if([UNAUTHORIZED_CODE].includes(statusCode)){
             yield put(customer.actions.logoutSaga());
         }
@@ -53,6 +51,5 @@ const isRedirectToErrorPage = (method, statusCode) => {
 export default function* startApp() {
     yield put({type: 'hello', message: 'world'});
     // yield fork(loadConfig);
-    yield takeLatest(t.LOCATION_CHANGE, resetToast);
     yield takeEvery(t.CALL_API, callWebApi);
 }

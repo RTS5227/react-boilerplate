@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/server';
 import Api from 'libs/api';
 import router from './components';
-import Html from './components/Html'
+import Html from './components/Layout/Html'
 import PropTypes from 'prop-types';
 import config from '../config.json';
 

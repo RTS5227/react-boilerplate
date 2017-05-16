@@ -1,5 +1,4 @@
-/**
- * Created by Tester-Ali on 13-10-2016.
- */
-import MainLayout from './MainLayout'
-export default MainLayout;
+import Default from './Default'
+import Html from './Html'
+export {Html}
+export default Default;
