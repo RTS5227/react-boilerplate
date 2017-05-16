@@ -16,7 +16,7 @@ Quick start
 `npm run graphiql`
 
 ### Todos
-- [ x ] relay modern
-- [ x ] server side rendering
-- [ x ] react hot loader
+- [x] relay modern
+- [x] server side rendering
+- [x] react hot loader
 - [ ] Accelerated Mobile Pages
