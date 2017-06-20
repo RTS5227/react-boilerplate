@@ -14,16 +14,12 @@ var babelrc = {
       "polyfill": false,
       "regenerator": true
     }],
-    ["module-resolver", {
-      "root": ["./src"],
-      "alias": {
-        "libs": "./src/libs",
-        "resources": "./src/resources",
-        "frontend": "./src/www_frontend",
-        "backend": "./src/www_backend",
-        "shared": "./src/www_shared"
-      }
-    }]
+    ["module-alias", [
+      { "src": "./src/www_shared", "expose": "shared" },
+      { "src": "./src/libs", "expose": "libs" },
+      { "src": "./src/resources", "expose": "resources" },
+      { "src": "./src/www_frontend", "expose": "frontend" }
+    ]]
   ]
 };
 require('babel-register')(babelrc);

@@ -71,6 +71,7 @@ const config = {
 
     plugins: [
         extractCSS,
+	new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
             names: ['vendors']
         }),

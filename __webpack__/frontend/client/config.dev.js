@@ -98,6 +98,7 @@ const config = {
     plugins: [
         extractCSS,
         new webpack.HotModuleReplacementPlugin(),
+	new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.NamedModulesPlugin(),
         new webpack.IgnorePlugin(/webpack-stats\.json$/),
         new webpack.DefinePlugin({
